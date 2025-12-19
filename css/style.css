@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+}
+
+/* طبقة القلوب (أبعد حاجة) */
+.hearts {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  bottom: -40px;
+  opacity: 0.25;
+  animation: fly linear infinite;
+}
+
+@keyframes fly {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-120vh); }
+}
+
+/* الخلفية (الصورة اللي بعتهالك) */
+.page {
+  min-height: 100vh;
+  background-image: url("../images/bg.jpg"); /* حط الصورة هنا */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* طبقة تعتيم خفيفة فوق الصورة (اختياري ومهم للقراءة) */
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.65);
+  z-index: 1;
+}
+
+/* الورقة (الرسالة) */
+.paper {
+  position: relative;
+  z-index: 2;
+  background: #fffdf8;
+  width: min(90%, 700px);
+  padding: 36px;
+  border-radius: 12px;
+  color: #333;
+  font-size: 18px;
+  line-height: normal; /* مفيش مسافات زيادة */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  white-space: pre-line;
+  text-align: center;
+}
+
+/* زرار */
+.next-btn {
+  margin-top: 24px;
+  padding: 10px 28px;
+  border: none;
+  border-radius: 22px;
+  background: #ff6fa5;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* الفيديو */
+.video-wrap {
+  position: relative;
+  z-index: 2;
+  width: min(90%, 700px);
+  margin-bottom: 18px;
+}
+
+.video-wrap iframe {
+  width: 100%;
+  height: 320px;
+  border-radius: 12px;
+  border: none;
+}
+
+/* موبايل */
+@media (max-width: 600px) {
+  .paper { font-size: 16px; padding: 26px; }
+  .video-wrap iframe { height: 220px; }
+}
+
+/* ================= */
+/* صفحة الباسورد */
+/* ================= */
+.password-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffd6e5, #fff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.password-box {
+  position: relative;
+  z-index: 5;
+  background: rgba(255,255,255,0.95);
+  padding: 40px;
+  width: 320px;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.password-box h2 {
+  color: #b3005e;
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+
+.password-box input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid #ccc;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.password-box button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 20px;
+  background: #ff6fa5;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.password-box button:hover {
+  background: #ff4f93;
+}
+
+#error {
+  display: none;
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
