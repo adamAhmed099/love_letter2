@@ -201,3 +201,19 @@ body {
   animation: pageFade 0.6s ease;
 }
 
+/* Next Button Animation */
+.next-btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.next-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(255, 111, 165, 0.45);
+  background: #ff4f93;
+}
+
+.next-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(255, 111, 165, 0.35);
+}
+
